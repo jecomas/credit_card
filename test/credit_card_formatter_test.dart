@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: CreditCard(
           cardWidth: 300.0,
           tradeMark: TradeMarkWidget.MASTERCARD,
-          fullName: "Jhon E. Doe",
+          fullName: "John E. Doe",
           pan: "5543  2234  2344  2234",
           expiration: "02/20",
         ),
