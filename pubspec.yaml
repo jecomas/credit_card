@@ -21,6 +21,18 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
 
+  uses-material-design: true
+
+  fonts:
+    - family: CreditCard
+      fonts:
+        - asset: fonts/CREDC___.ttf
+
+  assets:
+    - images/visa_pos_fc.png
+    - images/mc_pos_fc.png 
+    - images/issuer_logo.png
+
   # To add assets to your package, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

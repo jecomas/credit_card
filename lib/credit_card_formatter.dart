@@ -72,8 +72,8 @@ class _CreditCardState extends State<CreditCard> {
     var phGoodThru = widget.cardWidth * 0.40;
     var fsGoodThru = cardHeight * 0.033;
 
-    var pvIssuer = cardHeight * -0.1;
-    var phIssuer = widget.cardWidth * 0.03;
+    var pvIssuer = cardHeight * 0.05;
+    var phIssuer = widget.cardWidth * 0.06;
 
     var pvChip = cardHeight * 0.35;
     var phChip = widget.cardWidth * 0.06;
@@ -155,8 +155,9 @@ class _CreditCardState extends State<CreditCard> {
               left: phIssuer,
               child: new Image(
                 image: new AssetImage('images/issuer_logo.png'),
-                width: 100.0,
-                height: 80.0,
+                fit: BoxFit.fitHeight,
+                width: 120.0,
+                height: 40.0,
               )),
           Positioned(
             top: pvChip,
