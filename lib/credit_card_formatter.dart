@@ -9,12 +9,17 @@ class TradeMarkWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var visaLogoAsset = new AssetImage('images/visa_pos_fc.png');
-    var mcLogoAsset = new AssetImage('images/mc_pos_fc.png');
+    var visaLogoAsset = new AssetImage(
+      'images/visa_pos_fc.png',
+      package: 'credit_card_formatter',
+    );
+    var mcLogoAsset = new AssetImage(
+      'images/mc_pos_fc.png',
+      package: 'credit_card_formatter',
+    );
     var tradeMarkLogo;
     if (tradeMark == VISA) {
-      tradeMarkLogo =
-          new Image(image: visaLogoAsset, width: 50.0, height: 50.0);
+      tradeMarkLogo = new Image(image: visaLogoAsset, width: 50.0, height: 50.0);
     } else {
       tradeMarkLogo = new Image(image: mcLogoAsset, width: 50.0, height: 50.0);
     }
@@ -30,12 +35,7 @@ class CreditCard extends StatefulWidget {
   final String pan;
   final String expiration;
 
-  CreditCard(
-      {this.cardWidth,
-      this.tradeMark,
-      this.fullName,
-      this.pan,
-      this.expiration});
+  CreditCard({this.cardWidth, this.tradeMark, this.fullName, this.pan, this.expiration});
 
   @override
   State<StatefulWidget> createState() {
@@ -44,10 +44,8 @@ class CreditCard extends StatefulWidget {
 }
 
 class _CreditCardState extends State<CreditCard> {
-  
   @override
   Widget build(BuildContext context) {
-    
     var cardHeight = widget.cardWidth / 1.6;
 
     var chipWidth = widget.cardWidth * 0.15;
@@ -81,9 +79,7 @@ class _CreditCardState extends State<CreditCard> {
     return Container(
       width: widget.cardWidth,
       height: cardHeight,
-      decoration: BoxDecoration(
-          color: Color.fromARGB(255, 0, 0, 0),
-          borderRadius: BorderRadius.circular(15.0)),
+      decoration: BoxDecoration(color: Color.fromARGB(255, 0, 0, 0), borderRadius: BorderRadius.circular(15.0)),
       child: Stack(
         children: <Widget>[
           Positioned(
@@ -122,10 +118,7 @@ class _CreditCardState extends State<CreditCard> {
             left: phFullname,
             child: Text(
               widget.fullName,
-              style: TextStyle(
-                  decoration: TextDecoration.none,
-                  fontSize: fsFullname,
-                  color: Colors.white),
+              style: TextStyle(decoration: TextDecoration.none, fontSize: fsFullname, color: Colors.white),
             ),
           ),
           Positioned(
@@ -133,10 +126,7 @@ class _CreditCardState extends State<CreditCard> {
             left: phExpiration,
             child: Text(
               widget.expiration,
-              style: TextStyle(
-                  decoration: TextDecoration.none,
-                  fontSize: fsExpiration,
-                  color: Colors.white),
+              style: TextStyle(decoration: TextDecoration.none, fontSize: fsExpiration, color: Colors.white),
             ),
           ),
           Positioned(
@@ -144,17 +134,17 @@ class _CreditCardState extends State<CreditCard> {
             left: phGoodThru,
             child: Text(
               "GOOD\nTHRU",
-              style: TextStyle(
-                  decoration: TextDecoration.none,
-                  fontSize: fsGoodThru,
-                  color: Colors.white),
+              style: TextStyle(decoration: TextDecoration.none, fontSize: fsGoodThru, color: Colors.white),
             ),
           ),
           Positioned(
               top: pvIssuer,
               left: phIssuer,
               child: new Image(
-                image: new AssetImage('images/issuer_logo.png'),
+                image: AssetImage(
+                  'images/issuer_logo.png',
+                  package: 'credit_card_formatter',
+                ),
                 fit: BoxFit.fitHeight,
                 width: 120.0,
                 height: 40.0,
@@ -166,20 +156,16 @@ class _CreditCardState extends State<CreditCard> {
                 width: chipWidth,
                 height: chipHeight,
                 decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                        stops: [
-                          0.3,
-                          0.6,
-                          0.9
-                        ],
-                        colors: [
-                          // Colors are easy thanks to Flutter's Colors class.
-                          Colors.grey[300],
-                          Colors.grey[400],
-                          Colors.grey[500],
-                        ]),
+                    gradient: LinearGradient(begin: Alignment.centerLeft, end: Alignment.centerRight, stops: [
+                      0.3,
+                      0.6,
+                      0.9
+                    ], colors: [
+                      // Colors are easy thanks to Flutter's Colors class.
+                      Colors.grey[300],
+                      Colors.grey[400],
+                      Colors.grey[500],
+                    ]),
                     borderRadius: BorderRadius.circular(5.0))),
           )
         ],
