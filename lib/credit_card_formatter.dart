@@ -34,8 +34,9 @@ class CreditCard extends StatefulWidget {
   final String fullName;
   final String pan;
   final String expiration;
+  final bool mask;
 
-  CreditCard({this.cardWidth, this.tradeMark, this.fullName, this.pan, this.expiration});
+  CreditCard({this.cardWidth, this.tradeMark, this.fullName, this.pan, this.expiration, this.mask});
 
   @override
   State<StatefulWidget> createState() {
@@ -86,7 +87,7 @@ class _CreditCardState extends State<CreditCard> {
             top: pvPan,
             left: phPan,
             child: Text(
-              widget.pan,
+              widget.mask ? "****  ****  ****  " + widget.pan.substring(15, 19) : widget.pan,
               textScaleFactor: 1.0,
               overflow: TextOverflow.clip,
               style: TextStyle(
@@ -125,7 +126,7 @@ class _CreditCardState extends State<CreditCard> {
             top: pvExpiration,
             left: phExpiration,
             child: Text(
-              widget.expiration,
+              widget.mask ? "**/**" : widget.expiration,
               style: TextStyle(decoration: TextDecoration.none, fontSize: fsExpiration, color: Colors.white),
             ),
           ),
